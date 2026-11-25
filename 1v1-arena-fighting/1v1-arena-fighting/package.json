@@ -1,0 +1,9 @@
+{
+  "name": "1v1-arena-fighting",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Real-time 2D online fighting game for 1V1 ARENA",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "express": "^4.21.2", "socket.io": "^4.8.1" }
+}

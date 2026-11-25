@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1V1 ARENA — Fighting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-grid"></div>
+<header><a class="brand" href="#"><span class="brand-mark">⚔</span> 1V1 <b>ARENA</b></a><div class="online"><i></i> ONLINE BATTLE</div></header>
+<main>
+  <section class="hero">
+    <div class="eyebrow">THE ULTIMATE FRIENDS SHOWDOWN</div>
+    <h1>ENTER THE <span>ARENA</span></h1>
+    <p>Choose your fighter. Challenge your friend. Become the champion.</p>
+  </section>
+
+  <section id="lobby" class="panel lobby">
+    <div class="panel-top"><div><div class="eyebrow">MULTIPLAYER</div><h2>FIGHTER LOBBY</h2></div><div class="pill">● LIVE ROOMS</div></div>
+    <div class="lobby-grid">
+      <div class="join-card">
+        <div class="card-icon">⚡</div><h3>Create a room</h3><p>Start a private battle and invite a friend with your room code.</p>
+        <label>Your fighter name</label><input id="createName" maxlength="16" placeholder="Enter nickname" value="Player 1">
+        <button id="createBtn" class="primary">CREATE PRIVATE ROOM <span>↗</span></button>
+      </div>
+      <div class="join-card join">
+        <div class="card-icon">🥊</div><h3>Join a room</h3><p>Got a code from your friend? Enter it below and jump into the fight.</p>
+        <label>Your fighter name</label><input id="joinName" maxlength="16" placeholder="Enter nickname" value="Player 2">
+        <label>Room code</label><input id="roomCode" maxlength="5" class="code-input" placeholder="ABCDE">
+        <button id="joinBtn" class="secondary">JOIN THE FIGHT <span>→</span></button>
+      </div>
+    </div>
+    <div id="notice" class="notice">Create a room or join your friend's room to get started.</div>
+  </section>
+
+  <section id="game" class="game-wrap hidden">
+    <div class="game-head"><div><div class="eyebrow">PRIVATE MATCH</div><h2>THE NEON PIT</h2></div><div class="room-chip">ROOM <strong id="roomLabel">-----</strong><button id="copyBtn" title="Copy room code">COPY</button></div></div>
+    <div class="arena">
+      <div class="arena-scan"></div>
+      <div class="hud">
+        <div class="fighter-hud"><div class="fighter-name" id="name0">PLAYER 1</div><div class="bar"><div id="hp0" class="health"></div></div><div class="energy-bar"><div id="en0" class="energy"></div></div></div>
+        <div class="round-label">ROUND <b id="round">01</b></div>
+        <div class="fighter-hud right"><div class="fighter-name" id="name1">PLAYER 2</div><div class="bar"><div id="hp1" class="health"></div></div><div class="energy-bar"><div id="en1" class="energy"></div></div></div>
+      </div>
+      <canvas id="stage" width="1000" height="520"></canvas>
+      <div id="fightMessage" class="fight-message">WAITING FOR OPPONENT...</div>
+      <div class="arena-floor"></div>
+    </div>
+    <div class="game-controls">
+      <div><b>PLAYER 1 CONTROLS</b><span>A / D MOVE</span><span>W JUMP</span><span>J PUNCH</span><span>K KICK</span><span>L BLOCK</span><span>U SPECIAL</span></div>
+      <div class="center-controls"><button id="readyBtn" class="primary">I'M READY — FIGHT!</button><button id="leaveBtn" class="ghost">LEAVE ROOM</button></div>
+      <div class="right-controls"><b>PLAYER 2 CONTROLS</b><span>← / → MOVE</span><span>↑ JUMP</span><span>1 PUNCH</span><span>2 KICK</span><span>3 BLOCK</span><span>4 SPECIAL</span></div>
+    </div>
+    <div class="mobile-controls">
+      <button data-key="left">◀</button><button data-key="right">▶</button><button data-key="jump">JUMP</button><button data-key="attack">PUNCH</button><button data-key="kick">KICK</button><button data-key="block">BLOCK</button><button data-key="special">SPECIAL</button>
+    </div>
+  </section>
+  <section class="features"><div><span>01</span><b>REAL-TIME</b><small>Fight together online</small></div><div><span>02</span><b>PRIVATE ROOMS</b><small>Only your invited friend</small></div><div><span>03</span><b>BEST OF FUN</b><small>Rematch after every round</small></div></section>
+</main>
+<footer>© 2026 1V1 ARENA <span>BUILT FOR THE BOLD</span></footer>
+<script src="/socket.io/socket.io.js"></script><script src="game.js"></script>
+</body></html>
